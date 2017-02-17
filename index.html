@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>io</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.js"></script>
+  
+
+    <script>
+        var socket = io.connect('127.0.0.1:3000');
+        var status = 0;
+
+
+        function toogle () {
+
+            
+
+            if(status == 0){
+              status = 1;
+                socket.emit('send' , status  );
+              
+
+            } else {
+
+              status = 0;
+                socket.emit('send' , status  );
+
+
+            } 
+
+        }
+
+
+    </script>
+
+  </head>
+  <body>
+    <button id="toggle" onclick="toogle()" >Toogle</button>
+  </body>
+</html>
